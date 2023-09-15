@@ -1,0 +1,15 @@
+{% autoescape off %}
+
+
+Hi{{user.first_name}},
+
+{% if is_approved  %}
+congragulations! your restuarant has been approved by our admin team.--foodonline
+
+{%else%}
+We are Sorry!your Restuarant has currently not able to publish in our list.For more updates please contact support@foodonline.com.--foodonline
+{% endif %}
+
+
+
+{% endautoescape %}

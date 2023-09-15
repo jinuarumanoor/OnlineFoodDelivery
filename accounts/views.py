@@ -12,6 +12,7 @@ from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
+from vendor.models import Vendor
 
 # Restricting the vendor from the customer accessing page
 def check_role_vendor(user):
@@ -175,7 +176,7 @@ def vendorDashboard(request):
     return render(request,'accounts/vendorDashboard.html')
 
 def forgot_password(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         email=request.POST['email']
         if User.objects.filter(email=email).exists():
             user=User.objects.get(email__exact=email)
